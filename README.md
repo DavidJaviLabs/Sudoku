@@ -1,59 +1,61 @@
-# Aplicación Sudoku
+# 🧩Sudoku
+Sudoku es un juego completo desarrollado en Java con una interfaz gráfica (Swing), enfocado en la experiencia del usuario, la personalización del juego y el aprendizaje de patrones de diseño.
 
-## Desarrolladores
-- Javier Sáez García
-- David Escribano Arias
+## ✨ Funcionalidades
 
-## Descripción de la Aplicación
-Esta aplicación de Sudoku cuenta con diversas funcionalidades para proporcionar una experiencia de juego completa y desafiante. A continuación se detallan las características principales:
+- Pantalla de carga animada antes de iniciar el juego
+- Selección de nivel de dificultad: Fácil, Medio o Difícil
+- Generación automática de tableros válidos
+- Validación en tiempo real de las jugadas del usuario
+- Resaltado de errores y celdas seleccionadas
+- Detección automática de victoria y reproducción de sonido
+- Temporizador y contador de fallos
+- Guardado y carga de partidas por nivel de dificultad
+- Solución automática del tablero
 
-### 1. Generación del Tablero
-El programa es capaz de generar tableros de Sudoku válidos de diferentes niveles de dificultad (fácil, medio, difícil, etc.). Esto implica la creación de un tablero inicial con algunos números predeterminados y la garantía de que el tablero no tenga múltiples soluciones.
+## 🧪 Tecnologías utilizadas
 
-### 2. Interfaz de Usuario
-La aplicación cuenta con una interfaz gráfica de usuario que permite a los jugadores interactuar con el tablero de Sudoku. La interfaz incluye una cuadrícula 9x9 donde los jugadores pueden ingresar números y realizar otras acciones.
+- Java SE 8+
+- Java Swing (GUI)
+- Patrón de diseño Singleton modificado
+- Archivos locales para persistencia de partidas
+- Gestión de sonido con `javax.sound.sampled`
 
-### 3. Validación de Jugadas
-El programa verifica constantemente si las jugadas de los usuarios son válidas según las reglas del Sudoku. Esto incluye la comprobación de filas, columnas y regiones (bloques 3x3) para asegurarse de que no haya números repetidos.
+## ▶️ Ejecución del proyecto
 
-### 4. Ayudas y Pistas
-La aplicación ofrece funciones de ayuda, como resaltar los números que están en la posición equivocada, para ayudar a los jugadores a avanzar cuando están atascados.
+### Requisitos
 
-### 5. Detección de Victoria
-El programa verifica si el jugador ha completado el tablero correctamente y muestra un mensaje de victoria cuando todas las casillas están llenas.
+- JDK 8 o superior instalado
+- NetBeans (recomendado) o cualquier IDE Java compatible
 
-### 6. Niveles de Dificultad
-Ofrece la opción de seleccionar diferentes niveles de dificultad para adaptarse a las preferencias del jugador, desde tableros fáciles para principiantes hasta tableros más desafiantes para jugadores experimentados.
+### Compilación y ejecución
 
-## Patrón de Diseño Utilizado
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/DavidJaviLabs/Sudoku
+   ```
 
-### Singleton Modificado
-En este proyecto, hemos implementado una variante del patrón de diseño Singleton para gestionar las instancias de las clases `Interfaz`, `InterfazDificultad`, `InterfazVictoria` y `Juego_Sudoku`. 
+2. Ejecuta la clase principal:
+    ```bash
+    cd src
+    javac Sudoku/ClaseMainSudoku.java
+    java Sudoku.ClaseMainSudoku
+    ```
 
-#### Implementación:
-- **Método `getInstancia`**: 
-  Este método sigue el enfoque tradicional del patrón Singleton. 
-  ```java
-  public static Interfaz getInstancia() {
-      if(instancia == null) {
-          instancia = new Interfaz();
-      }
-      return instancia;
-  }
+> Asegúrate de ejecutar desde el nivel donde esté visible el paquete `Sudoku`.
 
-- **Método `crearNuevaInstancia`**:
-   Esta es una extensión del patrón Singleton convencional. En nuestro juego, es necesario restablecer o reiniciar el estado del juego para comenzar una nueva partida de Sudoku.
-   Este método anula la instancia existente y crea una nueva, garantizando que el estado del juego se reinicie completamente para la nueva partida.
-   ```java
-   public static Interfaz crearNuevaInstancia() {
-     instancia = null;
-     return getInstancia();
-   }
+### Pantalla de carga
+![Pantalla de carga](ImagenesReadme/Imagen1.png)
 
-#### Razón de la Modificación:
-   La necesidad de esta adaptación surge de la naturaleza del juego de Sudoku. Cada partida es independiente y requiere un estado de interfaz nuevo y limpio. El método `crearNuevaInstancia` permite a los jugadores iniciar una nueva partida sin retener ningún estado de partidas anteriores, lo cual es crucial para la experiencia de juego.
+### Interfaz de dificultad
+![Dificultad](ImagenesReadme/Imagen2.png)
 
+### Interfaz principal sudoku
+![Interfaz principal](ImagenesReadme/Imagen3.png)
 
-## Interfaz Final
+### Interfaz victoria
+![Interfaz victoria](ImagenesReadme/Imagen4.png)
 
-![Interfaz Final](https://media.discordapp.net/attachments/1039570431507706038/1180498832954503269/image.png?ex=657da436&is=656b2f36&hm=5ad00e8d0b94c80bd88d2ba349f8d3db9cd6014a783be95a8c89331d1fe778d7&=&format=webp&quality=lossless&width=1108&height=902)
+## 👥 Autores
+
+Proyecto realizado por Javier Sáez García y David Escribano Arias.
